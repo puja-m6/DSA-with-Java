@@ -44,20 +44,14 @@ class MiddleOfTheLinkedList
         //Tortoise and Hare Algorithm
         if(head.next==null)
         return head;
-        int flag=0;
         Node fast=head;
         Node slow=head;
-        while(fast.next!=null && fast.next.next!=null)
+        while(fast!=null && fast.next!=null)
         {
             slow=slow.next;
             fast=fast.next.next;
-            if(fast.next==null)
-            flag=1;
         }
-        if(flag==1)
         return slow;
-        else
-        return slow.next;
     }
     public static void main(String args[])
     {
