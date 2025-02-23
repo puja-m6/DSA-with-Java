@@ -34,7 +34,7 @@ class InfixToPostfix
             }
             else
             {
-                while(st.isEmpty()==false && priority(c)<priority(st.peek()))
+                while(st.isEmpty()==false && priority(c)<=priority(st.peek()))
                 {
                     ans+=st.peek();
                     st.pop();
