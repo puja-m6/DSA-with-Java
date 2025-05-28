@@ -7,7 +7,7 @@ class NextPermutation
         int n=nums.length;
         for(int i=n-2;i>=0;i--)
         {
-            if(nums[i]>nums[i+1])
+            if(nums[i]<nums[i+1])
             {
                 index=i;
                 break;
@@ -22,7 +22,7 @@ class NextPermutation
         {
             if(nums[i]>nums[index])
             {
-                swap(nums[i],nums[index]);
+                swap(nums,i,index);
                 break;
             }
         }
@@ -40,12 +40,12 @@ class NextPermutation
             end--;
         }
     }
-    void swap(int a,int b)
+    void swap(int[] nums,int i,int j)
     {
-        int c;
-        c=a;
-        a=b;
-        b=c;
+        int temp;
+        temp=nums[i];
+        nums[i]=nums[j];
+        nums[j]=temp;
     }
     public static void main(String args[])
     {
@@ -65,7 +65,7 @@ class NextPermutation
         {
             System.out.print(nums[i]+"\t");
         }
-        System.out.println("/nNext Permutation:");
+        System.out.println("\nNext Permutation:");
         ob.solution(nums);
         for(int i=0;i<n;i++)
         {
