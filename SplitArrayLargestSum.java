@@ -1,7 +1,8 @@
 import java.util.*;
 class SplitArrayLargestSum{
     int solution(int[] nums,int k){
-        int low=Integer.MIN_VALUE,high=0;
+        int low=Integer.MIN_VALUE;
+        long high=0;
         int n=nums.length;
         for(int i=0;i<n;i++){
             high+=nums[i];
@@ -10,7 +11,7 @@ class SplitArrayLargestSum{
             }
         }
         while(low<=high){
-            int mid=(low+high)/2;
+            int mid=(int)(low+high)/2;
             if(noOfSubarrays(nums,mid)>k){
                 low=mid+1;
             }
@@ -22,7 +23,7 @@ class SplitArrayLargestSum{
     }
     int noOfSubarrays(int[] nums,int mid){
         int count=1;
-        int subArraySum=0;
+        long subArraySum=0;
         int n=nums.length;
         for(int i=0;i<n;i++){
             if(subArraySum+nums[i]<=mid){
